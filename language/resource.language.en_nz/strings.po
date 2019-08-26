@@ -1100,7 +1100,7 @@ msgstr ""
 
 #: /shortcuts/overrides.xml
 msgctxt "#31497"
-msgid "Movies by Random Genre"
+msgid "Movie Suggestions by Genre:"
 msgstr ""
 
 #: /shortcuts/overrides.xml
@@ -1176,7 +1176,7 @@ msgid "Similar TV Shows based on Watched"
 msgstr ""
 
 msgctxt "#31517"
-msgid "TV Shows by Random Genre"
+msgid "TV Shows Suggestions by Genre:"
 msgstr ""
 
 msgctxt "#31518"
@@ -1543,7 +1543,7 @@ msgid "Search Results for: "
 msgstr ""
 
 msgctxt "#32015"
-msgid "Enable ExtendedInfo"
+msgid "Enable TMDb Online Info"
 msgstr ""
 
 msgctxt "#32016"
@@ -1768,4 +1768,92 @@ msgstr ""
 
 msgctxt "#32072"
 msgid "Enable Autocompletion for Virtual Keyboard"
+msgstr ""
+
+msgctxt "#32073"
+msgid "Budget"
+msgstr ""
+
+msgctxt "#32074"
+msgid "Revenue"
+msgstr ""
+
+msgctxt "#32075"
+msgid "Awards"
+msgstr ""
+
+msgctxt "#32076"
+msgid "Show Watched Items in Recent Shelves"
+msgstr ""
+
+msgctxt "#32077"
+msgid "RT Total Critics Reviews"
+msgstr ""
+
+msgctxt "#32078"
+msgid "RT Fresh Reviews"
+msgstr ""
+
+msgctxt "#32079"
+msgid "RT Rotten Reviews"
+msgstr ""
+
+msgctxt "#32080"
+msgid "RT Critics' Consensus"
+msgstr ""
+
+msgctxt "#32081"
+msgid "RT Total User Reviews"
+msgstr ""
+
+msgctxt "#32082"
+msgid "Birthday"
+msgstr ""
+
+msgctxt "#32083"
+msgid "Born"
+msgstr ""
+
+msgctxt "#32084"
+msgid "Age"
+msgstr ""
+
+msgctxt "#32085"
+msgid "Died"
+msgstr ""
+
+msgctxt "#32086"
+msgid "Also Known As"
+msgstr ""
+
+msgctxt "#32087"
+msgid "Cast in Movies"
+msgstr ""
+
+msgctxt "#32088"
+msgid "Cast in TV Shows"
+msgstr ""
+
+msgctxt "#32089"
+msgid "Crew in Movies"
+msgstr ""
+
+msgctxt "#32090"
+msgid "Crew in TV Shows"
+msgstr ""
+
+msgctxt "#32091"
+msgid "Movies in TMDb"
+msgstr ""
+
+msgctxt "#32092"
+msgid "TV Shows in TMDb"
+msgstr ""
+
+msgctxt "#32093"
+msgid "Movies in Local DB"
+msgstr ""
+
+msgctxt "#32094"
+msgid "TV Shows in Local DB"
 msgstr ""

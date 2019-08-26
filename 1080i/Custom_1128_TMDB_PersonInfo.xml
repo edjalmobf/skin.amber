@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="window" id="1128">
+    <onload>ClearProperty(TMDBHelper.TMDbTotals1.NumTMDBItems,Home)</onload>
+    <onload>ClearProperty(TMDBHelper.TMDbTotals1.NumTMDBItems,Home)</onload>
+    <onload>ClearProperty(TMDBHelper.TMDbTotals2.NumTMDBItems,Home)</onload>
+    <onload>ClearProperty(TMDBHelper.TMDbTotals2.NumDBIDItems,Home)</onload>
+    <defaultcontrol always="true">9999</defaultcontrol>
+    <controls>
+    
+    	<control type="image">
+			<width>1920</width>
+			<height>1080</height>
+			<texture>img/BlackDot.png</texture>
+			<aspectratio>scale</aspectratio>
+		</control>
+		<control type="image">
+			<width>1920</width>
+			<height>1080</height>
+			<texture background="true">special://skin/backgrounds/default.jpg</texture>
+			<aspectratio>scale</aspectratio>
+		</control>
+		<include content="BackgroundOverlay">
+			<param name="parentid" value="9999"/>
+		</include>
+    
+        <!-- Wait until plugin has populated person info.  If it is not a person, just show info. -->
+        <control type="list" id="9999">
+            <onfocus condition="!Integer.IsEqual(Container(9999).NumItems,0) + !Container(9999).IsUpdating + !String.IsEmpty(Window(Home).Property(TMDbHelper.Path.Current)) + !String.Contains(Window(Home).Property(TMDbHelper.Path.Current),type=person)">Action(Info)</onfocus>
+            <onfocus condition="!Integer.IsEqual(Container(9999).NumItems,0) + !Container(9999).IsUpdating + !String.IsEmpty(Window(Home).Property(TMDbHelper.Path.Current)) + String.Contains(Window(Home).Property(TMDbHelper.Path.Current),type=person)">SetFocus(90003)</onfocus>
+            <onfocus condition="[Integer.IsEqual(Container(9999).NumItems,0) | Container(9999).IsUpdating] + !String.IsEmpty(Window(Home).Property(TMDbHelper.Path.Current))">AlarmClock(doinfo,SetFocus(9999),00:01,silent)</onfocus>
+            <onfocus condition="String.IsEmpty(Window(Home).Property(TMDbHelper.Path.Current))">Action(Back)</onfocus>
+            <itemlayout />
+            <focusedlayout />
+            <content target="videos">$INFO[Window(Home).Property(TMDbHelper.Path.Current)]</content>
+        </control>
+
+        <!-- Please wait... -->
+        <control type="group">
+            <visible>[!String.Contains(Window(Home).Property(TMDbHelper.Path.Current),type=person) | Control.HasFocus(9999)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+            <include>InfoLoading</include>
+        </control>
+
+        <!-- Person Info -->
+        <control type="group">
+            <top>0</top>
+            <left>0</left>
+            <visible>String.Contains(Window(Home).Property(TMDbHelper.Path.Current),type=person) + !Control.HasFocus(9999)</visible>
+ 
+            <include content="ShadowedImage">
+			    <param name="top">24</param>
+			    <param name="left">24</param>
+			    <param name="width">619</param>
+			    <param name="height">960</param>
+			    <param name="shadowoffset">16</param>
+			    <param name="texture">$INFO[Container(9999).ListItemAbsolute(0).Art(poster)]</param>
+                <param name="visibility">true</param>
+		    </include>
+                        
+            <control type="group" id="300">
+			    <posx>700</posx>
+			    <posy>60</posy>
+				<control type="label" description="Person name">
+				    <posy>-45</posy>
+				    <width>950</width>
+				    <height>60</height>
+				    <font>InfoTitle</font>
+				    <textcolor>Highlight</textcolor>
+				    <align>left</align>
+				    <label>$INFO[Container(9999).ListItemAbsolute(0).Label]</label>
+				</control>
+				<control type="image" description="Line Split">
+				    <posy>23</posy>
+				    <width>1180</width>
+				    <height>1</height>
+				    <texture>img/LineL.png</texture>
+				    <aspectratio>stretch</aspectratio>
+				</control>
+				<control type="image" description="Line Split">
+				    <posy>83</posy>
+				    <width>1180</width>
+				    <height>1</height>
+				    <texture>img/LineL.png</texture>
+				    <aspectratio>stretch</aspectratio>
+				</control>                
+				<control type="textbox" id="900031" description="Biography">
+				    <include>VisibleFadeEffectDelay</include>
+				    <posy>90</posy>
+                    <left>5</left>
+				    <width>620</width>
+				    <height>355</height>
+				    <align>justify</align>
+				    <font>InfoPlot</font>
+                    <textcolor>$VAR[InfoPlotTextColor]</textcolor>
+                    <shadowcolor>LiteShadow</shadowcolor>
+				    <label>$INFO[Container(9999).ListItemAbsolute(0).Property(biography)]</label>
+				</control>
+				<control type="radiobutton" id="90003">
+				    <posy>447</posy>
+                    <left>588.3</left>
+				    <ondown>9100</ondown>
+				    <onright>9009</onright>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textureradioonfocus colordiffuse="Black">icons/dots7.png</textureradioonfocus>
+                    <textureradioonnofocus>icons/dots7.png</textureradioonnofocus>
+                    <texturefocus border="4" colordiffuse="Highlight">img/WhiteRoundedST2.png</texturefocus>
+                    <texturenofocus border="4">img/WhiteRoundedT.png</texturenofocus>
+                    <width>37</width>
+                    <height>17</height>
+                    <radiowidth>37</radiowidth>
+                    <radioheight>37</radioheight>
+                    <radioposx>0.1</radioposx>
+                    <radioposy>0</radioposy>
+                    <font></font>
+                    <selected>true</selected>
+					<onclick>SetProperty(TextViewerHeader,$ESCINFO[Container(9999).ListItemAbsolute(0).Label],Home)</onclick>
+					<onclick>SetProperty(TextViewerContent,$ESCINFO[Container(9999).ListItemAbsolute(0).Property(biography)],Home)</onclick>
+					<onclick>ActivateWindow(1124)</onclick>
+                    <onback condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.Path.Current))">RunScript(plugin.video.themoviedb.helper,del_path,call_id=1129)</onback>
+				</control>
+				<control type="image" description="Line Split">
+				    <posy>90</posy>
+                    <left>637</left>
+				    <width>1</width>
+				    <height>375</height>
+				    <texture>img/LineL.png</texture>
+				    <aspectratio>stretch</aspectratio>
+				</control>                
+				<control type="panel" id="9009">
+				    <include>VisibleFadeEffectDelay</include>
+				    <include>List_9009_Commons</include>
+                    <onup>9009</onup>
+                    <ondown>9009</ondown>
+                    <onleft>90003</onleft>
+				    <content>
+				        <item>
+				            <label>$LOCALIZE[32082]:</label>
+				            <label2>$INFO[Container(9999).ListItemAbsolute(0).Property(Birthday)]</label2>
+					        <onclick>noop</onclick>
+                            <visible>!String.IsEmpty(Container(9999).ListItemAbsolute(0).Property(Birthday))</visible>
+					    </item>
+					    <item>
+					        <label>$LOCALIZE[32083]:</label>
+					        <label2>$INFO[Container(9999).ListItemAbsolute(0).Property(Born)]</label2>
+					        <onclick>noop</onclick>
+                            <visible>!String.IsEmpty(Container(9999).ListItemAbsolute(0).Property(Born))</visible>
+					    </item>
+					    <item>
+					        <label>$LOCALIZE[32084]:</label>
+					        <label2>$INFO[Container(9999).ListItemAbsolute(0).Property(Age)]</label2>
+					        <onclick>noop</onclick>
+                            <visible>!String.IsEmpty(Container(9999).ListItemAbsolute(0).Property(Age))</visible>
+					    </item>
+					    <item>
+					        <label>$LOCALIZE[32085]:</label>
+					        <label2>$INFO[Container(9999).ListItemAbsolute(0).Property(Deathday)]</label2>
+					        <onclick>noop</onclick>
+					        <visible>!String.IsEmpty(Container(9999).ListItemAbsolute(0).Property(Deathday))</visible>
+					    </item>
+                        <item>
+					        <label>$LOCALIZE[32085]:</label>
+					        <label2>$INFO[Container(9999).ListItemAbsolute(0).Property(aliases)]</label2>
+					        <onclick>noop</onclick>
+					        <visible>!String.IsEmpty(Container(9999).ListItemAbsolute(0).Property(aliases))</visible>
+					    </item>
+                        <item>
+					        <label>$LOCALIZE[32091]:</label>
+					        <label2>$INFO[Window(Home).Property(TMDBHelper.TMDbTotals1.NumTMDBItems)]</label2>
+					        <onclick>noop</onclick>
+					        <visible>!String.IsEmpty(Window(Home).Property(TMDBHelper.TMDbTotals1.NumTMDBItems))</visible>
+					    </item>
+                        <item>
+					        <label>$LOCALIZE[32093]:</label>
+					        <label2>$INFO[Window(Home).Property(TMDBHelper.TMDbTotals1.NumDBIDItems)]</label2>
+					        <onclick>noop</onclick>
+					        <visible>!String.IsEmpty(Window(Home).Property(TMDBHelper.TMDbTotals1.NumDBIDItems))</visible>
+					    </item>
+                        <item>
+					        <label>$LOCALIZE[32092]:</label>
+					        <label2>$INFO[Window(Home).Property(TMDBHelper.TMDbTotals2.NumTMDBItems)]</label2>
+					        <onclick>noop</onclick>
+					        <visible>!String.IsEmpty(Window(Home).Property(TMDBHelper.TMDbTotals2.NumTMDBItems))</visible>
+					    </item>
+                        <item>
+					        <label>$LOCALIZE[32094]:</label>
+					        <label2>$INFO[Window(Home).Property(TMDBHelper.TMDbTotals2.NumDBIDItems)]</label2>
+					        <onclick>noop</onclick>
+					        <visible>!String.IsEmpty(Window(Home).Property(TMDBHelper.TMDbTotals2.NumDBIDItems))</visible>
+					    </item>                        
+					</content>
+				</control>
+ 			</control>
+                
+            <control type="group" id="9100">
+                <posx>700</posx>
+			    <posy>600</posy>
+			    <width>1180</width>
+			    <height>450</height>
+                
+                <control type="grouplist" id="91001">
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <onup>90003</onup>
+                    <height>450</height>
+                    <orientation>vertical</orientation>
+                    <itemgap>10</itemgap>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    
+                    <control type="group">
+                        <height>450</height>
+                        <visible>Control.IsVisible(9101)</visible>
+                        <control type="group">
+                            <control type="group">
+                                <control type="label">
+                                    <left>8</left>
+                                    <top>0</top>
+                                    <height>30</height>
+                                   <label>Cast in Movies</label>
+                                </control>
+                                <control type="image" description="Line Split">
+				                    <top>40</top>
+                                    <left>10</left>
+				                    <width>1180</width>
+				                    <height>1</height>
+				                    <texture>img/LineL.png</texture>
+				                    <aspectratio>stretch</aspectratio>
+				                </control>
+                            </control>    
+                            <control type="panel" id="9101">
+                                <top>44</top>
+                                <left>10</left>
+                                <width>1180</width>
+                                <height>410</height>
+                                <onup>300</onup>
+                                <ondown>9102</ondown>
+                                <onleft>9101</onleft>
+                                <onright>9101</onright>
+                                <scrolltime>200</scrolltime>
+                                <orientation>horizontal</orientation>
+                                <visible>Integer.IsGreater(Container(9101).NumItems,1) | Container(9101).IsUpdating</visible>
+                                <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(9101).NumItems,1) | Container(9101).IsUpdating">Conditional</animation>
+                                <include>InfoList_OnBack</include>
+                                <include content="InfoList_OnClick">
+                                    <param name="prevent_del" value="noop" />
+                                </include>
+                                <include content="CastLayout">
+                                    <param name="viewid">9101</param>
+                                    <param name="belowdoublelabel1">$INFO[ListItem.Label] $INFO[ListItem.Year,(,)]</param>
+				                    <param name="belowdoublelabel2">[I]$INFO[ListItem.Property(character)][/I]</param>
+                                </include>
+                                <content>
+                                    <item>
+							            <icon>DefaultAddonNone.png</icon>
+							            <thumb>DefaultAddonNone.png</thumb>
+							            <visible>String.IsEmpty(Container(9101).ListItem(1).Label)</visible>
+						            </item>
+                                </content>
+                                <content sortby="year" sortorder="descending" limit="25" target="videos">$VAR[InfoCastList01]</content>                        
+                            </control>
+                        </control>
+                    </control>
+                    
+                    <control type="group">
+                        <height>450</height>
+                        <visible>Control.IsVisible(9102)</visible>
+                        <control type="group">
+                            <control type="group">
+                                <control type="label">
+                                    <left>8</left>
+                                    <top>0</top>
+                                    <height>30</height>
+                                   <label>Cast in TV Shows</label>
+                                </control>
+                                <control type="image" description="Line Split">
+				                    <top>40</top>
+                                    <left>10</left>
+				                    <width>1180</width>
+				                    <height>1</height>
+				                    <texture>img/LineL.png</texture>
+				                    <aspectratio>stretch</aspectratio>
+				                </control>
+                            </control>
+                            <control type="panel" id="9102">
+                                <top>44</top>
+                                <left>10</left>
+                                <width>1180</width>
+                                <height>410</height>
+                                <onup>9101</onup>
+                                <ondown>9103</ondown>
+                                <onleft>9102</onleft>
+                                <onright>9102</onright>
+                                <scrolltime>200</scrolltime>
+                                <orientation>horizontal</orientation>
+                                <visible>Integer.IsGreater(Container(9102).NumItems,1) | Container(9102).IsUpdating</visible>
+                                <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(9102).NumItems,1) | Container(9102).IsUpdating">Conditional</animation>
+                                <include>InfoList_OnBack</include>
+                                <include content="InfoList_OnClick">
+                                    <param name="prevent_del" value="noop" />
+                                </include>
+                                <include content="CastLayout">
+                                    <param name="viewid">9102</param>
+                                    <param name="belowdoublelabel1">$INFO[ListItem.Label] $INFO[ListItem.Year,(,)]</param>
+				                    <param name="belowdoublelabel2">[I]$INFO[ListItem.Property(character)][/I]</param>
+                                </include>
+                                <content>
+                                    <item>
+							            <icon>DefaultAddonNone.png</icon>
+							            <thumb>DefaultAddonNone.png</thumb>
+							            <visible>String.IsEmpty(Container(9102).ListItem(1).Label)</visible>
+						            </item>
+                                </content>
+                                <content sortby="year" sortorder="descending" limit="30" target="videos">$VAR[InfoCastList02]</content>                        
+                            </control>
+                        </control>
+                    </control>
+
+                    <control type="group">
+                        <height>450</height>
+                        <visible>Control.IsVisible(9103)</visible>
+                        <control type="group">
+                            <control type="group">
+                                <control type="label">
+                                    <left>8</left>
+                                    <top>0</top>
+                                    <height>30</height>
+                                   <label>Crew in Movies</label>
+                                </control>
+                                <control type="image" description="Line Split">
+				                    <top>40</top>
+                                    <left>10</left>
+				                    <width>1180</width>
+				                    <height>1</height>
+				                    <texture>img/LineL.png</texture>
+				                    <aspectratio>stretch</aspectratio>
+				                </control>
+                            </control>
+                            <control type="panel" id="9103">
+                                <top>44</top>
+                                <left>10</left>
+                                <width>1180</width>
+                                <height>410</height>
+                                <onup>9102</onup>
+                                <ondown>9104</ondown>
+                                <onleft>9103</onleft>
+                                <onright>9103</onright>
+                                <scrolltime>200</scrolltime>
+                                <orientation>horizontal</orientation>
+                                <include>InfoList_OnBack</include>
+                                <visible>Integer.IsGreater(Container(9103).NumItems,1) | Container(9103).IsUpdating</visible>
+                                <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(9103).NumItems,1) | Container(9103).IsUpdating">Conditional</animation>
+                                <include content="InfoList_OnClick">
+                                    <param name="prevent_del" value="noop" />
+                                </include>
+                                <include content="CastLayout">
+                                    <param name="viewid">9103</param>
+                                    <param name="belowdoublelabel1">$INFO[ListItem.Label] $INFO[ListItem.Year,(,)]</param>
+				                    <param name="belowdoublelabel2">[I]$INFO[ListItem.Property(job)][/I]</param>
+                                </include>
+                                <content>
+                                    <item>
+							            <icon>DefaultAddonNone.png</icon>
+							            <thumb>DefaultAddonNone.png</thumb>
+							            <visible>String.IsEmpty(Container(9103).ListItem(1).Label)</visible>
+						            </item>
+                                </content>
+                                <content sortby="year" sortorder="descending" limit="30" target="videos">$VAR[InfoCastList03]</content>                        
+                            </control>
+                        </control>
+                    </control>
+                    
+                   <control type="group">
+                        <height>450</height>
+                        <visible>Control.IsVisible(9104)</visible>
+                        <control type="group">
+                            <control type="group">
+                                <control type="label">
+                                    <left>8</left>
+                                    <top>0</top>
+                                    <height>30</height>
+                                   <label>Crew in TV Shows</label>
+                                </control>
+                                <control type="image" description="Line Split">
+				                    <top>40</top>
+                                    <left>10</left>
+				                    <width>1180</width>
+				                    <height>1</height>
+				                    <texture>img/LineL.png</texture>
+				                    <aspectratio>stretch</aspectratio>
+				                </control>
+                            </control>
+                            <control type="panel" id="9104">
+                                <top>44</top>
+                                <left>10</left>
+                                <width>1180</width>
+                                <height>410</height>
+                                <onup>9103</onup>
+                                <onleft>9104</onleft>
+                                <onright>9104</onright>
+                                <scrolltime>200</scrolltime>
+                                <orientation>horizontal</orientation>
+                                <visible>Integer.IsGreater(Container(9104).NumItems,1) | Container(9104).IsUpdating</visible>
+                                <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(9104).NumItems,1) | Container(9104).IsUpdating">Conditional</animation>
+                                <include>InfoList_OnBack</include>
+                                <include content="InfoList_OnClick">
+                                    <param name="prevent_del" value="noop" />
+                                </include>
+                                <include content="CastLayout">
+                                    <param name="viewid">9104</param>
+                                    <param name="belowdoublelabel1">$INFO[ListItem.Label] $INFO[ListItem.Year,(,)]</param>
+				                    <param name="belowdoublelabel2">[I]$INFO[ListItem.Property(job)][/I]</param>
+                                </include>
+                                <content>
+                                    <item>
+							            <icon>DefaultAddonNone.png</icon>
+							            <thumb>DefaultAddonNone.png</thumb>
+							            <visible>String.IsEmpty(Container(9104).ListItem(1).Label)</visible>
+						            </item>
+                                </content>
+                                <content sortby="year" sortorder="descending" limit="30" target="videos">$VAR[InfoCastList04]</content>                        
+                            </control>
+                        </control>
+                    </control>
+                    
+                </control>   
+            </control>
+                
+        </control>
+    </controls>
+</window>
