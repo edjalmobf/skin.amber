@@ -742,7 +742,7 @@
     </variable>
 
     <variable name="VideoInfoCastFeatured">
-        <value condition="String.IsEqual(ListItem.DBType,movie) + Skin.HasSetting(Enable.ExtendedInfo) + System.HasAddon(plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;type=movie&amp;with_cast=$INFO[Container(90050).ListItemAbsolute(0).Label]$INFO[Container(90050).ListItemAbsolute(1).Label, / ,]$INFO[Container(90050).ListItemAbsolute(2).Label, / ,]&amp;with_separator=OR</value>
+        <value condition="String.IsEqual(ListItem.DBType,movie) + Skin.HasSetting(Enable.ExtendedInfo) + System.HasAddon(plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper/?info=discover&amp;type=movie&amp;with_cast=$INFO[Container(90050).ListItemAbsolute(0).Label]$INFO[Container(90050).ListItemAbsolute(1).Label, / ,]$INFO[Container(90050).ListItemAbsolute(2).Label, / ,]&amp;with_separator=OR&amp;exclude_key=title&amp;exclude_value=$INFO[ListItem.Title]</value>
         <value condition="String.IsEqual(ListItem.DBType,movie)">videodb://movies/titles/?xsp=%7B%22rules%22%3A%7B%22or%22%3A%5B%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Container(90050).ListItemAbsolute(0).Label]%22%5D%7D%2C%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Container(90050).ListItemAbsolute(1).Label]%22%5D%7D%2C%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Container(90050).ListItemAbsolute(2).Label]%22%5D%7D%2C%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Container(90050).ListItemAbsolute(3).Label]%22%5D%7D%2C%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Container(90050).ListItemAbsolute(4).Label]%22%5D%7D%2C%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Container(90050).ListItemAbsolute(5).Label]%22%5D%7D%2C%7B%22field%22%3A%22actor%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22$INFO[Container(90050).ListItemAbsolute(6).Label]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</value>
     </variable>
 
@@ -758,22 +758,26 @@
     </variable>
 
     <variable name="VideoInfoFromDirector">
-        <value condition="String.IsEqual(ListItem.DBType,movie) + Skin.HasSetting(Enable.ExtendedInfo) + System.HasAddon(plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper/?info=crew_in_movies&amp;type=person&amp;filter_key=job&amp;filter_value=Director&amp;query=$INFO[ListItem.Director]</value>
+        <value condition="String.IsEqual(ListItem.DBType,movie) + Skin.HasSetting(Enable.ExtendedInfo) + System.HasAddon(plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper/?info=crew_in_movies&amp;type=person&amp;filter_key=job&amp;filter_value=Director&amp;query=$INFO[ListItem.Director]&amp;exclude_key=title&amp;exclude_value=$INFO[ListItem.Title]</value>
         <value condition="String.IsEqual(ListItem.DBType,movie)">videodb://movies/titles/?xsp=%7b%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22director%22%2c%22operator%22%3a%22is%22%2c%22value%22%3a%5b%22$INFO[ListItem.Director]%22%5d%7d%5d%7d%2c%22type%22%3a%22movies%22%7d</value>
     </variable>
 
     <variable name="VideoInfoFromStudio">
-        <value condition="String.IsEqual(ListItem.DBType,movie) + Skin.HasSetting(Enable.ExtendedInfo) + System.HasAddon(plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper?info=discover&amp;type=movie&amp;with_companies=$INFO[ListItem.Studio]</value>
+        <value condition="String.IsEqual(ListItem.DBType,movie) + Skin.HasSetting(Enable.ExtendedInfo) + System.HasAddon(plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper?info=discover&amp;type=movie&amp;with_companies=$INFO[ListItem.Studio]&amp;exclude_key=title&amp;exclude_value=$INFO[ListItem.Title]</value>
         <value condition="String.IsEqual(ListItem.DBType,movie)">videodb://movies/titles/?xsp=%7b%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22studio%22%2c%22operator%22%3a%22is%22%2c%22value%22%3a%5b%22$INFO[ListItem.Studio]%22%5d%7d%5d%7d%2c%22type%22%3a%22movies%22%7d</value>
     </variable>
 
     <variable name="VideoInfoFromYear">
-        <value condition="String.IsEqual(ListItem.DBType,movie) + Skin.HasSetting(Enable.ExtendedInfo) + System.HasAddon(plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper?info=discover&amp;type=movie&amp;year=$INFO[ListItem.Year]</value>
+        <value condition="String.IsEqual(ListItem.DBType,movie) + Skin.HasSetting(Enable.ExtendedInfo) + System.HasAddon(plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper?info=discover&amp;type=movie&amp;primary_release_year=$INFO[ListItem.Year]</value>
+        <value condition="String.IsEqual(ListItem.DBType,tvshow) + Skin.HasSetting(Enable.ExtendedInfo) + System.HasAddon(plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper?info=discover&amp;type=tv&amp;first_air_date_year=$INFO[ListItem.Year]</value>
         <value condition="String.IsEqual(ListItem.DBType,movie)">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22year%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[ListItem.Year]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</value>
+        <value condition="String.IsEqual(ListItem.DBType,tvshow)">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22year%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[ListItem.Year]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</value>
     </variable>
 
-    <variable name="TMDbFromGenre">
+    <variable name="VideoInfoFromGenre">
         <value condition="[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow)] + Skin.HasSetting(Enable.ExtendedInfo) + System.HasAddon(plugin.video.themoviedb.helper)">plugin://plugin.video.themoviedb.helper?info=discover&amp;$VAR[TMDbMediaType]&amp;with_genres=$INFO[ListItem.Genre]</value>
+        <value condition="String.IsEqual(ListItem.DBType,movie)">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[ListItem.Genre]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</value>
+        <value condition="String.IsEqual(ListItem.DBType,tvshow)">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22genre%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Listitem.Genre]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</value>
     </variable>
 
     <variable name="TMDbRecommended">
@@ -781,11 +785,11 @@
     </variable>
 
     <variable name="InfoCastList01">
-        <value condition="!Container(9999).IsUpdating + Integer.IsGreater(Container(9999).NumItems,0)">$INFO[Container(9999).ListItemAbsolute(1).FolderPath]&amp;prop_id=TMDbTotals1</value>
+        <value condition="!Container(9999).IsUpdating + Integer.IsGreater(Container(9999).NumItems,0)">$INFO[Container(9999).ListItemAbsolute(1).FolderPath]</value>
         <value>videodb://</value>
     </variable>
     <variable name="InfoCastList02">
-        <value condition="!Container(9999).IsUpdating + Integer.IsGreater(Container(9999).NumItems,0)">$INFO[Container(9999).ListItemAbsolute(2).FolderPath]&amp;prop_id=TMDbTotals2</value>
+        <value condition="!Container(9999).IsUpdating + Integer.IsGreater(Container(9999).NumItems,0)">$INFO[Container(9999).ListItemAbsolute(2).FolderPath]</value>
         <value>videodb://</value>
     </variable>
     <variable name="InfoCastList03">
@@ -859,7 +863,7 @@
                         <left>8</left>
                         <top>0</top>
                         <height>30</height>
-                        <label>$LOCALIZE[206] $INFO[Container(90050).NumItems,(,)]</label>
+                        <label>[COLOR=Highlight]$LOCALIZE[206] $INFO[Container(90050).NumItems,(,)][/COLOR]</label>
                         <font>ListDetails</font>
                     </control>
                     <control type="image" description="Line Split">
@@ -886,19 +890,19 @@
                     <visible>Integer.IsGreater(Container(90050).NumItems,0) | Container(90050).IsUpdating</visible>
                     <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container(90050).NumItems,0) | Container(90050).IsUpdating">Conditional</animation>
                     <!-- select local or tmdb search for movies or tv shows -->
-			        <onclick condition="Skin.HasSetting(Enable.ExtendedInfo) + !Container.Content(sets)">SetProperty(Dialog.1.Label,$LOCALIZE[32018])</onclick>
-                    <onclick condition="Skin.HasSetting(Enable.ExtendedInfo) + !Container.Content(sets)">SetProperty(Dialog.1.BuiltIn,RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person&amp;query=$INFO[Container(90050).ListItem.Label],call_id=1129,prevent_del))</onclick>
-			        <onclick condition="Skin.HasSetting(Enable.ExtendedInfo) + !Container.Content(sets)">SetProperty(Dialog.2.Label,$LOCALIZE[32017])</onclick>
-			        <onclick condition="Skin.HasSetting(Enable.ExtendedInfo) + !Container.Content(sets)">SetProperty(Dialog.2.BuiltIn,SetProperty(CustomSearch,3,home)||Skin.SetString(CustomSearchTerm,$ESCINFO[Container(90050).ListItem.Label])||Dialog.Close(all)||ActivateWindow(1122)||AlarmClock(Wait,ClearProperty(CustomSearch,home),00:01,silent))</onclick>
-			        <onclick condition="Skin.HasSetting(Enable.ExtendedInfo) + !Container.Content(sets)">RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[137])</onclick> 
+<!--                    <onclick condition="Skin.HasSetting(Enable.ExtendedInfo) + !ListItem.IsCollection">SetProperty(ItemTitle,$INFO[Container(90050).ListItem.Label],Home)</onclick>
+                    <onclick condition="Skin.HasSetting(Enable.ExtendedInfo) + !ListItem.IsCollection">ActivateWindow(1121)</onclick> -->
+			        <onclick condition="Skin.HasSetting(Enable.ExtendedInfo) + !ListItem.IsCollection">SetProperty(Dialog.1.Label,$LOCALIZE[32018])</onclick>
+                    <onclick condition="Skin.HasSetting(Enable.ExtendedInfo) + !ListItem.IsCollection">SetProperty(Dialog.1.BuiltIn,RunScript(plugin.video.themoviedb.helper,add_path=plugin://plugin.video.themoviedb.helper/?info=details&amp;type=person&amp;query=$INFO[Container(90050).ListItem.Label],call_id=1129,prevent_del))</onclick>
+			        <onclick condition="Skin.HasSetting(Enable.ExtendedInfo) + !ListItem.IsCollection">SetProperty(Dialog.2.Label,$LOCALIZE[32017])</onclick>
+			        <onclick condition="Skin.HasSetting(Enable.ExtendedInfo) + !ListItem.IsCollection">SetProperty(Dialog.2.BuiltIn,Skin.SetString(CustomSearchTerm,$ESCINFO[Container(90050).ListItem.Label])||Dialog.Close(all)||ActivateWindow(1122))</onclick>
+			        <onclick condition="Skin.HasSetting(Enable.ExtendedInfo) + !ListItem.IsCollection">RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[137])</onclick>
                     <!-- only local search -->            
-                    <onclick condition="!Skin.HasSetting(Enable.ExtendedInfo) + !Container.Content(sets)">SetProperty(CustomSearch,3,home)</onclick>
-			        <onclick condition="!Skin.HasSetting(Enable.ExtendedInfo) + !Container.Content(sets)">Skin.SetString(CustomSearchTerm,$ESCINFO[ListItem.Label])</onclick>
-			        <onclick condition="!Skin.HasSetting(Enable.ExtendedInfo) + !Container.Content(sets)">Dialog.Close(all)</onclick>
-			        <onclick condition="!Skin.HasSetting(Enable.ExtendedInfo) + !Container.Content(sets)">ActivateWindow(1122)</onclick>
-			        <onclick condition="!Skin.HasSetting(Enable.ExtendedInfo) + !Container.Content(sets)">AlarmClock(Wait,ClearProperty(CustomSearch,home),00:01,silent)</onclick>
+			        <onclick condition="!Skin.HasSetting(Enable.ExtendedInfo) + !ListItem.IsCollection">Skin.SetString(CustomSearchTerm,$ESCINFO[Container(90050).ListItem.Label])</onclick>
+			        <onclick condition="!Skin.HasSetting(Enable.ExtendedInfo) + !ListItem.IsCollection">Dialog.Close(all)</onclick>
+			        <onclick condition="!Skin.HasSetting(Enable.ExtendedInfo) + !ListItem.IsCollection">ActivateWindow(1122)</onclick>
                     <!-- sets -->
-                    <onclick condition="Container.Content(sets)">RunScript(plugin.video.themoviedb.helper,add_path=$INFO[Container(90050).ListItem.Label,videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22,%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D],call_id=1129,prevent_del)</onclick>
+                    <onclick condition="ListItem.IsCollection">RunScript(plugin.video.themoviedb.helper,add_path=$INFO[Container(90050).ListItem.Label,videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22,%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D],call_id=1129,prevent_del)</onclick>
             
                     <include content="ActorLayout">
                         <param name="viewid">90050</param>
@@ -998,18 +1002,40 @@
             <onclick condition="!String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBType,tvshow)">RunScript(plugin.video.themoviedb.helper,add_path=$INFO[ListItem.Label,videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22,%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D],call_id=1129,$PARAM[prevent_del])</onclick>
         </definition>
     </include>
+    
+    <include name="InfoList_OnClickPictures">
+        <param name="prevent_del" default="prevent_del" />
+        <definition>
+            <onclick>SetFocus(91506)</onclick>
+        </definition>
+    </include>
+    
+    <include name="InfoList_OnClickSeasons">
+        <param name="prevent_del" default="prevent_del" />
+        <definition>
+            <onclick>Dialog.Close(all,force)</onclick>
+            <onclick>ActivateWindow(videos,$INFO[Container(9102).ListItem.FolderPath])</onclick>
+        </definition>
+    </include>
 
     <include name="VideoInfoPosterWidget">
         <param name="id" />
         <param name="headinglabel"></param>
         <param name="onup"></param>
         <param name="ondown"></param>
+        <param name="belowdoublelabelvisibility">true</param>
         <param name="belowdoublelabel1">$INFO[ListItem.Label] $INFO[ListItem.Year,(,)]</param>
         <param name="belowdoublelabel2"></param>
+        <param name="belowlabelvisibility">false</param>
+        <param name="belowlabel">$INFO[ListItem.Label]</param>
         <param name="content"></param>
         <param name="prevent_del">prevent_del</param>
         <param name="visibility1">true</param>
         <param name="visibility2">true</param>
+        <param name="onclickinclude">InfoList_OnClick</param>
+        <param name="minnumitems">1</param>
+        <param name="sortby"></param>
+        <param name="sortorder"></param>
         <definition>
             <control type="group">
                 <height>450</height>
@@ -1022,7 +1048,7 @@
                             <left>8</left>
                             <top>0</top>
                             <height>30</height>
-                            <label>$PARAM[headinglabel] $INFO[Container($PARAM[id]).NumItems,(,)]</label>
+                            <label>[COLOR=Highlight]$PARAM[headinglabel] $INFO[Container($PARAM[id]).NumItems,(,)][/COLOR]</label>
                             <font>ListDetails</font>
                         </control>
                         <control type="image" description="Line Split">
@@ -1045,16 +1071,19 @@
                         <onright>$PARAM[id]</onright>
                         <scrolltime>200</scrolltime>
                         <orientation>horizontal</orientation>
-                        <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,1) | Container($PARAM[id]).IsUpdating</visible>
-                        <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container($PARAM[id]).NumItems,1) | Container($PARAM[id]).IsUpdating">Conditional</animation>
+                        <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,$PARAM[minnumitems]) | Container($PARAM[id]).IsUpdating</visible>
+                        <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container($PARAM[id]).NumItems,$PARAM[minnumitems]) | Container($PARAM[id]).IsUpdating">Conditional</animation>
                         <include>InfoList_OnBack</include>
-                        <include content="InfoList_OnClick">
+                        <include content="$PARAM[onclickinclude]">
                             <param name="prevent_del">$PARAM[prevent_del]</param>
                         </include>
                         <include content="CastLayout">
                             <param name="viewid">$PARAM[id]</param>
+                            <param name="belowdoublelabelvisibility">$PARAM[belowdoublelabelvisibility]</param>
                             <param name="belowdoublelabel1">$PARAM[belowdoublelabel1]</param>
 			                <param name="belowdoublelabel2">$PARAM[belowdoublelabel2]</param>
+                            <param name="belowlabelvisibility">$PARAM[belowlabelvisibility]</param>
+                            <param name="belowlabel">$PARAM[belowlabel]</param>
                         </include>
                         <content>
                             <item>
@@ -1063,63 +1092,7 @@
 							    <visible>String.IsEmpty(Container($PARAM[id]).ListItem(1).Label)</visible>
 						    </item>
                         </content>
-                        <content sortby="year" sortorder="descending" limit="25" target="videos">$PARAM[content]</content>                        
-                    </control>
-                </control>
-            </control>
-        </definition>
-    </include>
-    
-    <include name="VideoInfoPicturesWidget">
-        <param name="id" />
-        <param name="headinglabel"></param>
-        <param name="onup"></param>
-        <param name="ondown"></param>
-        <param name="content"></param>
-        <definition>
-            <control type="group">
-                <height>450</height>
-                <visible>Control.IsVisible($PARAM[id])</visible>
-                <control type="group">
-                    <control type="group">
-                        <control type="label">
-                            <left>8</left>
-                            <top>0</top>
-                            <height>30</height>
-                            <label>$PARAM[headinglabel] $INFO[Container($PARAM[id]).NumItems,(,)]</label>
-                            <font>ListDetails</font>
-                        </control>
-                        <control type="image" description="Line Split">
-				            <top>40</top>
-                            <left>10</left>
-				            <width>1180</width>
-				            <height>1</height>
-				            <texture>img/LineL.png</texture>
-				            <aspectratio>stretch</aspectratio>
-				        </control>
-                    </control>    
-                    <control type="panel" id="$PARAM[id]">
-                        <top>44</top>
-                        <left>10</left>
-                        <width>1180</width>
-                        <height>410</height>
-                        <onup>$PARAM[onup]</onup>
-                        <ondown>$PARAM[ondown]</ondown>
-                        <onleft>$PARAM[id]</onleft>
-                        <onright>$PARAM[id]</onright>
-                        <scrolltime>200</scrolltime>
-                        <orientation>horizontal</orientation>
-                        <visible>Integer.IsGreater(Container($PARAM[id]).NumItems,1) | Container($PARAM[id]).IsUpdating</visible>
-                        <animation effect="fade" start="100" end="0" condition="!Integer.IsGreater(Container($PARAM[id]).NumItems,1) | Container($PARAM[id]).IsUpdating">Conditional</animation>
-                        <include>InfoList_OnBack</include>
-                        <onclick>SetFocus(91506)</onclick>
-                        <include content="CastLayout">
-                            <param name="viewid">$PARAM[id]</param>
-                            <param name="belowlabelvisibility">true</param>
-                            <param name="belowlabel">$INFO[ListItem.Label]</param>
-                            <param name="belowdoublelabelvisibility">false</param>
-                        </include>
-                        <content limit="25" target="videos">$PARAM[content]</content>                        
+                        <content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" limit="25" target="videos">$PARAM[content]</content>                        
                     </control>
                 </control>
             </control>
