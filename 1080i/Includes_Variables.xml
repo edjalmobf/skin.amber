@@ -417,6 +417,8 @@
         <value condition="[Window.IsActive(script-NextAired-TVGuide2.xml) | Window.IsActive(script-NextAired-TVGuide.xml)]">$INFO[System.AddonTitle(script.tv.show.next.aired)]</value>
         <value condition="Window.IsActive(script-globalsearch.xml)">$INFO[System.AddonTitle(script.globalsearch)] - $LOCALIZE[32014][COLOR=Highlight]$INFO[Window.Property(GlobalSearch.SearchString)][/COLOR]</value>
         <value condition="Window.IsActive(1122)">$LOCALIZE[32014][COLOR=Highlight]$INFO[Skin.String(CustomSearchTerm)][/COLOR]</value>
+        <value condition="Window.IsActive(1131) + String.IsEqual(Window(Home).Property(SingleSearchType),Online)">$LOCALIZE[32111]</value>
+        <value condition="Window.IsActive(1131) + !String.IsEqual(Window(Home).Property(SingleSearchType),Online)">$LOCALIZE[32112]</value>
     </variable>
 
     <variable name="CurrentBackgroundSetting">
@@ -470,7 +472,7 @@
         <value condition="[String.IsEqual(ListItem.DBType,episode) + Window.IsActive(DialogVideoInfo.xml) + Skin.HasSetting(Show.SeasonEpisodeInfo) + String.IsEmpty(ListItem.Art(tvshow.banner))]">[B]$INFO[ListItem.TVshowTitle][/B] • $VAR[SeasonEpisodeLabel] • $INFO[ListItem.Title]</value>
         <value condition="[String.IsEqual(ListItem.DBType,episode) + Window.IsActive(DialogVideoInfo.xml) + !Skin.HasSetting(Show.SeasonEpisodeInfo) + !String.IsEmpty(ListItem.Art(tvshow.banner))]">$INFO[ListItem.Title]</value>
         <value condition="[String.IsEqual(ListItem.DBType,episode) + Window.IsActive(DialogVideoInfo.xml) + !Skin.HasSetting(Show.SeasonEpisodeInfo) + String.IsEmpty(ListItem.Art(tvshow.banner))]">[B]$INFO[ListItem.TVshowTitle][/B] • $INFO[ListItem.Title]</value>
-        <value condition="[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,season)] + [Window.IsActive(script-globalsearch.xml) | Window.IsActive(1122)]">$INFO[ListItem.TVShowTitle,, • ]$INFO[ListItem.Label]</value>
+        <value condition="[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,season)] + [Window.IsActive(script-globalsearch.xml) | Window.IsActive(1122) | Window.IsActive(1131)]">$INFO[ListItem.TVShowTitle,, • ]$INFO[ListItem.Label]</value>
         <value condition="Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRTimers.xml)">$INFO[Listitem.Title]</value>
         <value condition="Window.IsActive(MyPVRRecordings.xml) + ListItem.IsFolder + Integer.IsGreater(Container(80).NumItems,0)">$INFO[ListItem.label] $INFO[Container(80).NumItems,[B](,)[/B]]</value>
         <value>$INFO[Listitem.label]</value>
@@ -649,7 +651,8 @@
 
     <variable name="SubBackground">
         <value condition="!Skin.HasSetting(Sub_FanArtBG)">$VAR[SubDefaultBackground]</value>
-        <value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(Window(Home).Property(SkinHelper.ExtraFanArtPath))">$INFO[Window(Home).Property(SkinHelper.ExtraFanArtPath)]</value>
+        <value condition="!String.IsEmpty(Control.GetLabel(4411)) + Skin.HasSetting(SkinHelper.EnableExtraFanart)">$INFO[Control.GetLabel(4411)]</value>
+		<value condition="!String.IsEmpty(Control.GetLabel(4410)) + Skin.HasSetting(SkinHelper.EnableExtraFanart)">$INFO[Control.GetLabel(4410)]</value>
         <value>$VAR[Fanart.Art]</value>
     </variable>
 

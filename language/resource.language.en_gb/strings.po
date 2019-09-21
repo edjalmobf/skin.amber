@@ -1920,3 +1920,51 @@ msgstr ""
 msgctxt "#32110"
 msgid "Select a Director"
 msgstr ""
+
+msgctxt "#32111"
+msgid "Online TMDb Search"
+msgstr ""
+
+msgctxt "#32112"
+msgid "Local Search"
+msgstr ""
+
+msgctxt "#32113"
+msgid "Select a Writer"
+msgstr ""
+
+msgctxt "#32114"
+msgid "Movies Written by"
+msgstr ""
+
+msgctxt "#32115"
+msgid "Select a Country"
+msgstr ""
+
+msgctxt "#32116"
+msgid "Episodes from Studio"
+msgstr ""
+
+msgctxt "#32117"
+msgid "Episodes with Genre"
+msgstr ""
+
+msgctxt "#32118"
+msgid "Episodes Written by"
+msgstr ""
+
+msgctxt "#32119"
+msgid "Episodes Directed by"
+msgstr ""
+
+msgctxt "#32120"
+msgid "AB: All Artwork"
+msgstr ""
+
+msgctxt "#32121"
+msgid "AB: Select Artwork"
+msgstr ""
+
+msgctxt "#32122"
+msgid "Show Artwork Beef items in Context Menu"
+msgstr ""
