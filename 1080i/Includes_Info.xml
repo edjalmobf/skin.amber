@@ -5,6 +5,7 @@
         <value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+        <value condition="!String.IsEmpty(Container(10051).ListItem.Art(Thumb))">$INFO[Container(10051).ListItem.Art(thumb)]</value>
     </variable>
 
     <variable name="DialogVideoInfoThumb" description="Episode Thumb">
@@ -17,6 +18,7 @@
     <variable name="DialogVideoInfoBanner" description="TV Show Banner">
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.banner)) + !String.IsEqual(ListItem.DBType,tvshow)">$INFO[ListItem.Art(tvshow.banner)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(banner)) + String.IsEqual(ListItem.DBType,tvshow)">$INFO[ListItem.Art(banner)]</value>
+        <value condition="!String.IsEmpty(Container(10051)ListItem.Art(banner)) + String.IsEqual(ListItem.DBType,tvshow)">$INFO[Container(10051)ListItem.Art(banner)]</value>
         <value>DefaultBanner.png</value>
     </variable>
 
@@ -554,7 +556,53 @@
         <value condition="String.IsEqual(Container(5100).ListItemAbsolute(0).Property(rottentomatoes_usermeter),60)">badges/ratings/popcorn12.png</value>
         <value>badges/ratings/popcorn22.png</value>
     </variable>
+    
+    <!-- Embuary Info Rottentomatoes Variables -->
 
+    <variable name="EmbuaryInfoRottenFreshLogoVar">
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),100)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),99)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),98)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),97)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),96)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),95)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),94)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),93)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),92)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),91)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),90)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),89)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),88)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),87)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),86)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),85)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),84)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),83)">badges/ratings/certified2.png</value>        
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),82)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),81)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),80)">badges/ratings/certified2.png</value>        
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),79)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),78)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),77)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),76)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),75)">badges/ratings/certified2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),74)">badges/ratings/fresh2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),73)">badges/ratings/fresh2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),72)">badges/ratings/fresh2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),71)">badges/ratings/fresh2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),70)">badges/ratings/fresh2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),69)">badges/ratings/fresh2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),68)">badges/ratings/fresh2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),67)">badges/ratings/fresh2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),66)">badges/ratings/fresh2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),65)">badges/ratings/fresh2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),64)">badges/ratings/fresh2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),63)">badges/ratings/fresh2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),62)">badges/ratings/fresh2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),61)">badges/ratings/fresh2.png</value>
+        <value condition="String.IsEqual(Container(10051).ListItem.Property(Rating.Rotten),60)">badges/ratings/fresh2.png</value>
+        <value>badges/ratings/rotten2.png</value>
+    </variable>
 
     <variable name="CertFlag">
         <value condition="String.IsEmpty(ListItem.MPAA) | String.Contains(ListItem.MPAA,NR) | String.IsEqual(ListItem.MPAA,Rated) | String.IsEqual(ListItem.MPAA,Rated ) | String.IsEqual(ListItem.MPAA,Not Rated) | String.IsEqual(ListItem.MPAA,Rated Not Rated)">badges/mpaa/NR.png</value>
@@ -662,6 +710,59 @@
         <value>$INFO[Container(5100).ListItemAbsolute(0).MPAA,badges/mpaa,.png]</value>
     </variable>
     
+    <variable name="EmbuaryInfoCertFlag">
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),US) + [String.IsEmpty(Container(10051).ListItem.MPAA) | String.IsEqual(Container(10051).ListItem.MPAA,NR) | String.IsEqual(Container(10051).ListItem.MPAA,Rated) | String.IsEqual(Container(10051).ListItem.MPAA,Rated ) | String.IsEqual(Container(10051).ListItem.MPAA,Not Rated)]">badges/mpaa/NR.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),US) + String.IsEqual(Container(10051).ListItem.MPAA,R)">badges/mpaa/R.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),US) + String.IsEqual(Container(10051).ListItem.MPAA,X)">badges/mpaa/X.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),US) + String.IsEqual(Container(10051).ListItem.MPAA,NC-17)">badges/mpaa/NC-17.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),US) + String.IsEqual(Container(10051).ListItem.MPAA,PG-13)">badges/mpaa/PG-13.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),US) + String.IsEqual(Container(10051).ListItem.MPAA,PG)">badges/mpaa/PG.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),US) + [String.IsEqual(Container(10051).ListItem.MPAA,G) | String.IsEqual(Container(10051).ListItem.MPAA,Approved) | String.IsEqual(Container(10051).ListItem.MPAA,Passed)]">badges/mpaa/G.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),US) + String.IsEqual(Container(10051).ListItem.MPAA,TV-Y)">badges/mpaa/TV-Y.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),US) + String.IsEqual(Container(10051).ListItem.MPAA,TV-Y7)">badges/mpaa/TV-Y7.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),US) + String.IsEqual(Container(10051).ListItem.MPAA,TV-G)">badges/mpaa/TV-G.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),US) + String.IsEqual(Container(10051).ListItem.MPAA,TV-PG)">badges/mpaa/TV-PG.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),US) + String.IsEqual(Container(10051).ListItem.MPAA,TV-14)">badges/mpaa/TV-14.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),US) + String.IsEqual(Container(10051).ListItem.MPAA,TV-MA)">badges/mpaa/TV-MA.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),GB) + [String.IsEqual(Container(10051).ListItem.MPAA,U)]">badges/mpaa/UK_BBFC_U.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),GB) + [String.IsEqual(Container(10051).ListItem.MPAA,A) | String.IsEqual(Container(10051).ListItem.MPAA,PG)]">badges/mpaa/UK_BBFC_PG.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),GB) + [String.IsEqual(Container(10051).ListItem.MPAA,12A)]">badges/mpaa/UK_BBFC_12A.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),GB) + [String.IsEqual(Container(10051).ListItem.MPAA,12)]">badges/mpaa/UK_BBFC_12.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),GB) + [String.IsEqual(Container(10051).ListItem.MPAA,15)]">badges/mpaa/UK_BBFC_15.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),GB) + [String.IsEqual(Container(10051).ListItem.MPAA,18)]">badges/mpaa/UK_BBFC_18.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),GB) + [String.IsEqual(Container(10051).ListItem.MPAA,R18)]">badges/mpaa/UK_BBFC_R18.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),DE) + String.IsEqual(Container(10051).ListItem.MPAA,FSK 16)">badges/mpaa/Germany_16.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),DE) + String.IsEqual(Container(10051).ListItem.MPAA,FSK 0)">badges/mpaa/Germany_0.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),DE) + String.IsEqual(Container(10051).ListItem.MPAA,FSK 6)">badges/mpaa/Germany_6.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),DE) + String.IsEqual(Container(10051).ListItem.MPAA,FSK 12)">badges/mpaa/Germany_12.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),DE) + String.IsEqual(Container(10051).ListItem.MPAA,FSK 18)">badges/mpaa/Germany_18.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),FR) + [String.IsEqual(Container(10051).ListItem.MPAA,U) | String.Contains(Container(10051).ListItem.MPAA,Tous publics)]">badges/mpaa/France_-10.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),FR) + [String.IsEqual(Container(10051).ListItem.MPAA,10) | String.Contains(Container(10051).ListItem.MPAA,Interdit aux moins de 10 ans)]">badges/mpaa/France_-10.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),FR) + [String.IsEqual(Container(10051).ListItem.MPAA,12) | String.Contains(Container(10051).ListItem.MPAA,Interdit aux moins de 12 ans)]">badges/mpaa/France_-12.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),FR) + [String.IsEqual(Container(10051).ListItem.MPAA,16) | String.Contains(Container(10051).ListItem.MPAA,Interdit aux moins de 16 ans)]">badges/mpaa/France_-16.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),FR) + [String.IsEqual(Container(10051).ListItem.MPAA,18) | String.Contains(Container(10051).ListItem.MPAA,Interdit aux moins de 18 ans)]">badges/mpaa/France_-18.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),BR) + [String.Contains(Container(10051).ListItem.MPAA,Livre) | String.IsEqual(Container(10051).ListItem.MPAA,Livre)]">badges/mpaa/Brazil_L.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),BR) + String.IsEqual(Container(10051).ListItem.MPAA,10)">badges/mpaa/Brazil_10.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),BR) + String.IsEqual(Container(10051).ListItem.MPAA,12)">badges/mpaa/Brazil_12.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),BR) + String.IsEqual(Container(10051).ListItem.MPAA,14)">badges/mpaa/Brazil_14.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),BR) + String.IsEqual(Container(10051).ListItem.MPAA,16)">badges/mpaa/Brazil_16.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),BR) + String.IsEqual(Container(10051).ListItem.MPAA,18)">badges/mpaa/Brazil_18.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),AU) + String.IsEqual(Container(10051).ListItem.MPAA,MA15)">badges/mpaa/australia_MA15+.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),AU) + String.IsEqual(Container(10051).ListItem.MPAA,R18)">badges/mpaa/australia_R18+.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),AU) + String.IsEqual(Container(10051).ListItem.MPAA,M)">badges/mpaa/Australia_M.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),AU) + String.IsEqual(Container(10051).ListItem.MPAA,PG)">badges/mpaa/Australia_PG.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),AU) + String.IsEqual(Container(10051).ListItem.MPAA,G)">badges/mpaa/Australia_G.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),AU) + String.IsEqual(Container(10051).ListItem.MPAA,E)">badges/mpaa/Australia_E.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),NL) + [String.Contains(Container(10051).ListItem.MPAA,NL-AL) | String.IsEqual(Container(10051).ListItem.MPAA,AL)]">badges/mpaa/NL_AL.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),NL) + [String.Contains(Container(10051).ListItem.MPAA,NL-6) | String.IsEqual(Container(10051).ListItem.MPAA,6)]">badges/mpaa/NL_6.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),NL) + [String.Contains(Container(10051).ListItem.MPAA,NL-9) | String.IsEqual(Container(10051).ListItem.MPAA,9)]">badges/mpaa/NL_9.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),NL) + [String.Contains(Container(10051).ListItem.MPAA,NL-12) | String.IsEqual(Container(10051).ListItem.MPAA,12)]">badges/mpaa/NL_12.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),NL) + [String.Contains(Container(10051).ListItem.MPAA,NL-16) | String.IsEqual(Container(10051).ListItem.MPAA,16)]">badges/mpaa/NL_16.png</value>
+        <value condition="String.IsEqual(Window(home).Property(script.embuary.info-country_code),NL) + [String.Contains(Container(10051).ListItem.MPAA,NL-18) | String.IsEqual(Container(10051).ListItem.MPAA,18)]">badges/mpaa/NL_18.png</value>
+
+        <value>$INFO[Container(10051).ListItem.MPAA,badges/mpaa,.png]</value>
+    </variable>
+    
     <variable name="SetsCertFlag">
         <value condition="String.IsEmpty(Window(Home).Property(SkinInfo.Set.Movie.1.MPAA)) | String.Contains(Window(Home).Property(SkinInfo.Set.Movie.1.MPAA),NR) | String.IsEqual(Window(Home).Property(SkinInfo.Set.Movie.1.MPAA),Rated) | String.IsEqual(Window(Home).Property(SkinInfo.Set.Movie.1.MPAA),Rated ) | String.IsEqual(Window(Home).Property(SkinInfo.Set.Movie.1.MPAA),Not Rated) | String.IsEqual(Window(Home).Property(SkinInfo.Set.Movie.1.MPAA),Rated Not Rated)">badges/mpaa/NR.png</value>
         <value condition="String.Contains(Window(Home).Property(SkinInfo.Set.Movie.1.MPAA),US:R) | String.Contains(Window(Home).Property(SkinInfo.Set.Movie.1.MPAA),United States:R) | String.Contains(Window(Home).Property(SkinInfo.Set.Movie.1.MPAA),USA:R) | String.IsEqual(Window(Home).Property(SkinInfo.Set.Movie.1.MPAA),Rated R) | String.IsEqual(Window(Home).Property(SkinInfo.Set.Movie.1.MPAA),R)">badges/mpaa/R.png</value>
@@ -733,6 +834,12 @@
         <value>DefaultStudios.png</value>
     </variable>
     
+    <variable name="InfoStudiosEmbuary">
+        <value condition="!String.IsEmpty(Skin.String(studiosResource.path)) + String.Contains(Skin.String(studiosResource.path),coloured)">resource://resource.images.studios.coloured/$INFO[Container(10051).ListItem.Studio,,.png]</value>
+        <value condition="!String.IsEmpty(Skin.String(studiosResource.path)) + String.Contains(Skin.String(studiosResource.path),white)">resource://resource.images.studios.white/$INFO[Container(10051).ListItem.Studio,,.png]</value>
+        <value>DefaultStudios.png</value>
+    </variable>
+    
     <variable name="InfoPlotTextColor">
         <value>White</value>
     </variable>
@@ -772,12 +879,16 @@
     <!-- Media type for themoviedb.helper: movie or tvshow -->
     <variable name="TMDbMediaType">
         <value condition="String.IsEqual(ListItem.DBType,movie) | ListItem.IsCollection">type=movie</value>
+        <value condition="Window.IsActive(script-embuary-video.xml) + String.IsEqual(Container(10051).ListItem.DBType,movie)">type=movie</value>
         <value condition="String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">type=tv</value>
+        <value condition="Window.IsActive(script-embuary-video.xml) + [String.IsEqual(Container(10051).ListItem.DBType,tvshow) | String.IsEqual(Container(10051).ListItem.DBType,season)]">type=tv</value>
     </variable>
     <!-- Studio call for themoviedb.helper: companies for movies, networks for tv shows -->
     <variable name="TMDbStudioCall">
         <value condition="String.IsEqual(ListItem.DBType,movie) | ListItem.IsCollection">with_companies</value>
+        <value condition="Window.IsActive(script-embuary-video.xml) + String.IsEqual(Container(10051).ListItem.DBType,movie)">with_companies</value>
         <value condition="String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)">with_networks</value>
+        <value condition="Window.IsActive(script-embuary-video.xml) + [String.IsEqual(Container(10051).ListItem.DBType,tvshow) | String.IsEqual(Container(10051).ListItem.DBType,season)]">with_networks</value>
     </variable>
     
     <variable name="TMDbFanart">
@@ -791,7 +902,7 @@
     </variable>
     <!-- List content for Sets custom info list -->
     <variable name="VideoInfoSets">
-        <value condition="String.IsEqual(ListItem.DBType,movie) + Skin.HasSetting(Enable.ExtendedInfo) + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEmpty(ListItem.Set)">plugin://plugin.video.themoviedb.helper/?info=collection&amp;type=movie&amp;query=$INFO[Container(5100).ListItemAbsolute(0).Set]</value>
+        <value condition="String.IsEqual(ListItem.DBType,movie) + Skin.HasSetting(Enable.ExtendedInfo) + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEmpty(ListItem.Set)">plugin://plugin.video.themoviedb.helper/?info=collection&amp;type=movie&amp;query=$INFO[ListItem.Set]</value>
         <value condition="ListItem.IsCollection + Skin.HasSetting(Enable.ExtendedInfo) + System.HasAddon(plugin.video.themoviedb.helper) + !String.IsEmpty(ListItem.Title)">plugin://plugin.video.themoviedb.helper/?info=collection&amp;type=movie&amp;query=$INFO[ListItem.Title]</value>
         <value condition="String.IsEqual(ListItem.DBType,set) + !Skin.HasSetting(Enable.ExtendedInfo) + !String.IsEmpty(ListItem.DBID)">$INFO[ListItem.DBID,videodb://movies/sets/,/]</value>
         <value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.SetID)">$INFO[ListItem.SetID,videodb://movies/sets/,/]</value>
@@ -904,6 +1015,8 @@
         <value condition="String.IsEqual(ListItem.DBType,movie) | ListItem.IsCollection">$LOCALIZE[32029]</value>
         <value condition="String.IsEqual(ListItem.DBType,tvshow)">$LOCALIZE[32030]</value>
         <value condition="String.IsEqual(ListItem.DBType,episode)">$LOCALIZE[32117]</value>
+        <value condition="Window.IsActive(script-embuary-video.xml) + String.IsEqual(Container(10051).ListItem.DBType,movie)">$LOCALIZE[32029]</value>
+        <value condition="Window.IsActive(script-embuary-video.xml) + [String.IsEqual(Container(10051).ListItem.DBType,tvshow) | String.IsEqual(Container(10051).ListItem.DBType,season)]">$LOCALIZE[32030]</value>
     </variable>
 
     <!-- Header for single search of movies/tv shows/episodes from studio -->
@@ -911,6 +1024,8 @@
         <value condition="String.IsEqual(ListItem.DBType,movie) | ListItem.IsCollection">$LOCALIZE[32031]</value>
         <value condition="String.IsEqual(ListItem.DBType,tvshow)">$LOCALIZE[32032]</value>
         <value condition="String.IsEqual(ListItem.DBType,episode)">$LOCALIZE[32116]</value>
+        <value condition="Window.IsActive(script-embuary-video.xml) + String.IsEqual(Container(10051).ListItem.DBType,movie)">$LOCALIZE[32031]</value>
+        <value condition="Window.IsActive(script-embuary-video.xml) + [String.IsEqual(Container(10051).ListItem.DBType,tvshow) | String.IsEqual(Container(10051).ListItem.DBType,season)]">$LOCALIZE[32032]</value>
     </variable>
     
     <variable name="SingleSearchContent">
@@ -923,6 +1038,15 @@
         <value condition="String.IsEqual(Window(Home).Property(SingleSearchType),LocalEpisodeStudio)">videodb://tvshows/titles/-1/-1/-1/-1/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22studio%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SingleSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22episodes%22%7D</value>
         <value condition="String.IsEqual(Window(Home).Property(SingleSearchType),LocalMovieCountry)">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22country%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(SingleSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</value>
     </variable>
+    
+	<variable name="EmbuaryInfoCrewLabel">
+		<value condition="String.IsEqual(Container(10051).ListItem.DBType,season)">$LOCALIZE[32129]</value>
+		<value>$LOCALIZE[32099]</value>
+	</variable>
+    
+    
+    
+    
     
     <!-- List layout for video info media details -->
     <include name="List_9009_Commons" description="Video Info metadata container">
@@ -1411,5 +1535,156 @@
             </control>
         </control>
     </include>    
+
+    <include name="EmbuaryInfoPersonMultiFanart">
+		<definition>
+			<control type="list" id="2003">
+				<autoscroll time="8000">true</autoscroll>
+				<itemlayout />
+	            <focusedlayout />
+                <posx>-20</posx>
+			    <posy>-20</posy>
+			    <width>1</width>
+			    <height>1</height>
+				<content>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10052).ListItemAbsolute(0).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10052).ListItemAbsolute(0).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10052).ListItemAbsolute(1).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10052).ListItemAbsolute(1).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10052).ListItemAbsolute(2).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10052).ListItemAbsolute(2).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10052).ListItemAbsolute(3).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10052).ListItemAbsolute(3).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10052).ListItemAbsolute(4).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10052).ListItemAbsolute(4).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10052).ListItemAbsolute(5).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10052).ListItemAbsolute(5).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10052).ListItemAbsolute(6).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10052).ListItemAbsolute(6).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10052).ListItemAbsolute(7).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10052).ListItemAbsolute(7).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10052).ListItemAbsolute(8).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10052).ListItemAbsolute(8).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10052).ListItemAbsolute(9).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10052).ListItemAbsolute(9).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10052).ListItemAbsolute(10).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10052).ListItemAbsolute(10).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10053).ListItemAbsolute(0).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10053).ListItemAbsolute(0).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10053).ListItemAbsolute(1).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10053).ListItemAbsolute(1).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10053).ListItemAbsolute(2).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10053).ListItemAbsolute(2).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10053).ListItemAbsolute(3).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10053).ListItemAbsolute(3).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10053).ListItemAbsolute(4).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10053).ListItemAbsolute(4).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10053).ListItemAbsolute(5).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10053).ListItemAbsolute(5).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10053).ListItemAbsolute(6).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10053).ListItemAbsolute(6).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10053).ListItemAbsolute(7).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10053).ListItemAbsolute(7).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10053).ListItemAbsolute(8).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10053).ListItemAbsolute(8).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10053).ListItemAbsolute(9).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10053).ListItemAbsolute(9).Art(fanart))</visible>
+					</item>
+					<item>
+						<label></label>
+						<icon>$INFO[Container(10053).ListItemAbsolute(10).Art(fanart)]</icon>
+						<onclick>noop</onclick>
+						<visible>!String.IsEmpty(Container(10053).ListItemAbsolute(10).Art(fanart))</visible>
+					</item>
+				</content>
+			</control>
+		</definition>
+	</include>
+
+
+
 
 </includes>

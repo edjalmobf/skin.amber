@@ -464,6 +464,7 @@
     </variable>
 
     <variable name="panelheading">
+        <value condition="Window.IsActive(script-embuary-video.xml)">$INFO[Container(10051).ListItem.Title,[B],[/B] ]$INFO[Container(10051).ListItem.Year,(,)]</value>
         <value condition="ListItem.IsParentFolder">..</value>
         <value condition="String.IsEqual(ListItem.DBType,set) + !String.IsEqual(Container.ViewMode,biglist)">$INFO[Listitem.Title,[B],[/B]]</value>
         <value condition="String.IsEqual(ListItem.DBType,set) + String.IsEqual(Container.ViewMode,biglist)">$INFO[Listitem.Title,,]</value>
@@ -481,6 +482,7 @@
         <value condition="[String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,season)] + [Window.IsActive(script-globalsearch.xml) | Window.IsActive(1122) | Window.IsActive(1131)]">$INFO[ListItem.TVShowTitle,, • ]$INFO[ListItem.Label]</value>
         <value condition="Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRTimers.xml)">$INFO[Listitem.Title]</value>
         <value condition="Window.IsActive(MyPVRRecordings.xml) + ListItem.IsFolder + Integer.IsGreater(Container(80).NumItems,0)">$INFO[ListItem.label] $INFO[Container(80).NumItems,[B](,)[/B]]</value>
+        <value condition="Window.IsActive(script-embuary-video.xml)">$INFO[Container(10051).ListItem.Label,[B],[/B] ]$INFO[Container(10051).ListItem.Year,(,)]</value>
         <value>$INFO[Listitem.label]</value>
     </variable>
 
@@ -527,6 +529,7 @@
 
 
     <variable name="Plots" description="Plots and descriptions">
+        <value condition="Window.IsActive(script-embuary-video.xml)">$INFO[Container(10051).ListItem.Plot]</value>
         <value condition="ListItem.IsParentFolder"> </value>
         <value condition="Window.IsVisible(MyPVRRecordings.xml) + Control.IsVisible(80)"> </value>
         <value condition="Container.content(addons) + !String.IsEmpty(ListItem.AddonDescription)">$INFO[ListItem.AddonDescription]</value>
@@ -668,6 +671,7 @@
     </variable>
 
     <variable name="SubBackground">
+        <value condition="[Window.IsVisible(script-embuary-person.xml)] + !String.IsEmpty(Container(2003).ListItem.Icon) + !Container.OnNext + !Container.OnPrevious">$INFO[Container(2003).ListItem.Icon]</value>
         <value condition="!Skin.HasSetting(Sub_FanArtBG)">$VAR[SubDefaultBackground]</value>
         <value condition="!String.IsEmpty(Control.GetLabel(4411)) + Skin.HasSetting(SkinHelper.EnableExtraFanart)">$INFO[Control.GetLabel(4411)]</value>
 		<value condition="!String.IsEmpty(Control.GetLabel(4410)) + Skin.HasSetting(SkinHelper.EnableExtraFanart)">$INFO[Control.GetLabel(4410)]</value>
@@ -830,6 +834,7 @@
 
     <variable name="CustomInfoSelectHeader">
         <value condition="!String.IsEmpty(Window(movieinformation).Property(ActorID))">$INFO[Window(movieinformation).Property(ActorName)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(DoInfoExtras))">$LOCALIZE[32135]</value>
         <value>$LOCALIZE[22080]</value>
     </variable>
 
@@ -843,6 +848,11 @@
         <value condition="Integer.IsGreater(ListItem.Duration(h),1)">$LOCALIZE[12392]</value>
     </variable>
     
+    <variable name="EmbuaryHourLabel">
+        <value condition="Integer.IsEqual(Container(10051).ListItem.Duration(h),1)">$LOCALIZE[32125]</value>
+        <value condition="Integer.IsGreater(Container(10051).ListItem.Duration(h),1)">$LOCALIZE[12392]</value>
+    </variable>
+    
     <variable name="OnlineHourLabel">
         <value condition="Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(h),1)">$LOCALIZE[32125]</value>
         <value condition="Integer.IsGreater(Container(5100).ListItemAbsolute(0).Duration(h),1)">$LOCALIZE[12392]</value>
@@ -851,6 +861,11 @@
     <variable name="MinuteLabel">
         <value condition="Integer.IsEqual(ListItem.Duration(m),1)">$LOCALIZE[32126]</value>
         <value condition="Integer.IsGreater(ListItem.Duration(m),1)">$LOCALIZE[12391]</value>
+    </variable>
+    
+    <variable name="EmbuaryMinuteLabel">
+        <value condition="Integer.IsEqual(Container(10051).ListItem.Duration(m),1)">$LOCALIZE[32126]</value>
+        <value condition="Integer.IsGreater(Container(10051).ListItem.Duration(m),1)">$LOCALIZE[12391]</value>
     </variable>
     
     <variable name="OnlineMinuteLabel">
@@ -871,9 +886,16 @@
 		<value>$INFO[ListItem.Duration(h)] $VAR[HourLabel], $INFO[ListItem.Duration(m)] $VAR[MinuteLabel]</value>
 	</variable>
     
+    <variable name="EmbuaryItemDurationHrMins">
+		<value condition="Integer.IsEqual(Container(10051).ListItem.Duration(mins),60) | Integer.IsEqual(Container(10051).ListItem.Duration(mins),120) | Integer.IsEqual(Container(10051).ListItem.Duration(mins),180) | Integer.IsEqual(Container(10051).ListItem.Duration(mins),240) | Integer.IsEqual(Container(10051).ListItem.Duration(mins),300) | Integer.IsEqual(Container(10051).ListItem.Duration(mins),360) | Integer.IsEqual(Container(10051).ListItem.Duration(mins),420) | Integer.IsEqual(ListItem.Duration(mins),480) | Integer.IsEqual(Container(10051).ListItem.Duration(mins),540) | Integer.IsEqual(Container(10051).ListItem.Duration(mins),600)">$INFO[Container(10051).ListItem.Duration(hours)] $VAR[HourLabel]</value>
+		<value condition="Integer.IsLess(Container(10051).ListItem.Duration(mins),60)">$INFO[Container(10051).ListItem.Duration(m)] $VAR[MinuteLabel]</value>
+		<value condition="Integer.IsLess(Container(10051).ListItem.Duration(mins),1)">$INFO[Container(10051).ListItem.Duration(ss),, $LOCALIZE[32047]]</value>
+		<value>$INFO[Container(10051).ListItem.Duration(h)] $VAR[EmbuaryHourLabel], $INFO[Container(10051).ListItem.Duration(m)] $VAR[EmbuaryMinuteLabel]</value>
+	</variable>
+    
     <variable name="OnlineItemDurationHrMins">
 		<value condition="[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)] + !String.IsEmpty(Window(Home).Property(NextAired.Runtime))">$INFO[Window(Home).Property(NextAired.Runtime)] $VAR[NextAiredMinuteLabel]</value>
-		<value condition="Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),60) | Integer.IsEqualContainer(5100).ListItemAbsolute(0).Duration(mins),120) | Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),180) | Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),240) | Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),300) | Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),360) | Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),420) | Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),480) | Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),540) | Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),600)">$INFO[Container(5100).ListItemAbsolute(0).Duration(hours)] $VAR[OnlineHourLabel]</value>
+		<value condition="Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),60) | Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),120) | Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),180) | Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),240) | Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),300) | Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),360) | Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),420) | Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),480) | Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),540) | Integer.IsEqual(Container(5100).ListItemAbsolute(0).Duration(mins),600)">$INFO[Container(5100).ListItemAbsolute(0).Duration(hours)] $VAR[OnlineHourLabel]</value>
 		<value condition="Integer.IsLess(Container(5100).ListItemAbsolute(0).Duration(mins),60)">$INFO[Container(5100).ListItemAbsolute(0).Duration(m)] $VAR[OnlineMinuteLabel]</value>
 		<value condition="Integer.IsLess(Container(5100).ListItemAbsolute(0).Duration(mins),1)">$INFO[Container(5100).ListItemAbsolute(0).Duration(ss),,$LOCALIZE[32047]]</value>
 		<value>$INFO[Container(5100).ListItemAbsolute(0).Duration(h)] $VAR[OnlineHourLabel], $INFO[Container(5100).ListItemAbsolute(0).Duration(m)] $VAR[OnlineMinuteLabel]</value>
