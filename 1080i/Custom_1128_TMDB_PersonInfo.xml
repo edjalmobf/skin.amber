@@ -40,7 +40,6 @@
             <visible>[!String.Contains(Window(Home).Property(TMDbHelper.Path.Current),type=person) | Control.HasFocus(9999)] + !Window.IsVisible(DialogVideoInfo.xml)</visible>
             <include>InfoLoading</include>
         </control>
-
         <!-- Person Info -->
         <control type="group">
             <top>0</top>
@@ -56,6 +55,22 @@
                 <param name="texture">$INFO[Container(9999).ListItemAbsolute(0).Art(poster)]</param>
                 <param name="visibility">true</param>
             </include>
+			<!-- TMDb frame -->
+			<control type="image">
+				<top>0</top>
+				<left>0</left>
+				<texture>img/tmdb-frame.png</texture>
+			</control>
+			<!-- Powered by TMDb image -->
+			<control type="image" description="Powered by TMDb">
+				<posy>995</posy>
+				<left>250</left>
+				<height>70</height>
+				<width>177</width>
+				<texture>badges/ratings/powered-by-tmdb.png</texture>
+				<aspectratio>keep</aspectratio>
+				<aligny>center</aligny>
+			</control>	
             <!-- Person info details -->            
             <control type="group" id="300">
                 <posx>700</posx>
@@ -68,15 +83,6 @@
                     <textcolor>Highlight</textcolor>
                     <align>left</align>
                     <label>$INFO[Container(9999).ListItemAbsolute(0).Label]</label>
-                </control>
-                <control type="image" description="Powered by TMDb">
-                    <posy>8</posy>
-                    <left>995</left>
-                    <height>70</height>
-                    <width>177</width>
-                    <texture>badges/ratings/powered-by-tmdb.png</texture>
-                    <aspectratio>keep</aspectratio>
-                    <aligny>center</aligny>
                 </control>
                 <control type="image" description="Line Split">
                     <posy>83</posy>

@@ -40,16 +40,22 @@
             <param name="shadowoffset">16</param>
             <param name="texture">$VAR[DialogVideoInfoPoster]</param>
         </include>
-        <!-- Powered by TMDb image -->
-        <control type="image" description="Powered by TMDb">
-            <posy>1000</posy>
-            <left>250</left>
-            <height>70</height>
-            <width>177</width>
-            <texture>badges/ratings/powered-by-tmdb.png</texture>
-            <aspectratio>keep</aspectratio>
-            <aligny>center</aligny>
-        </control>
+        <!-- TMDb frame -->
+		<control type="image">
+			<top>0</top>
+			<left>0</left>
+			<texture>img/tmdb-frame.png</texture>
+		</control>
+		<!-- Powered by TMDb image -->
+		<control type="image" description="Powered by TMDb">
+			<posy>995</posy>
+			<left>250</left>
+			<height>70</height>
+			<width>177</width>
+			<texture>badges/ratings/powered-by-tmdb.png</texture>
+			<aspectratio>keep</aspectratio>
+			<aligny>center</aligny>
+		</control>	
         <!-- Rating bar for TMDB Online info -->
         <control type="grouplist" description="Ratings for embuary info items">
             <top>83</top>
@@ -192,7 +198,7 @@
                     <label>$VAR[panelheading]</label>
                 </control>
                 <control type="image" description="Studio - Embuary Info">
-                    <posy>-46</posy>
+                    <posy>-45</posy>
                     <left>1000</left>
                     <height>65</height>
                     <width>160</width>
@@ -202,7 +208,7 @@
                     <visible>!String.IsEmpty(Container(10051).ListItem.Property(Studio.Icon.0)) + String.IsEqual(Container(10051).ListItem.DBType,movie)</visible>
                 </control>
                 <control type="image" description="Studio - Embuary Info">
-                    <posy>-46</posy>
+                    <posy>-45</posy>
                     <left>1000</left>
                     <height>65</height>
                     <width>160</width>
